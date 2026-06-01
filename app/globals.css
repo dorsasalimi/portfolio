@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'FattiPattiFLF';
+  src: url('/fonts/FattiPattiFLF.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MonumentExtended-Regular';
+  src: url('/fonts/MonumentExtended-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '3DLet';
+  src: url('/fonts/3dlet.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UniviaPro-Regular';
+  src: url('/fonts/UniviaPro-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ProductSans';
+  src: url('/fonts/Product Sans Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,14 +59,18 @@
   }
 }
 
+html {
+  /* Required — without this, browser native scroll fights Lenis */
+  scroll-behavior: auto !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif, '3dlet';
 }
 
-
-
+/* Rest of your animations remain the same */
 @keyframes float {
 
   0%,
@@ -77,17 +121,112 @@ body {
   }
 }
 
-.floating-square {
-  animation: float var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
+/* app/globals.css */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.floating-square-slow {
-  animation: floatSlow var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
-.pulsing-square {
-  animation: pulse var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 8s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.33%);
+  }
+}
+
+/* Add to your globals.css */
+
+/* Hide default scrollbar */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar container */
+.custom-scrollbar-container {
+  position: fixed;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-scrollbar-container:hover {
+  width: 6px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Custom scrollbar thumb */
+.custom-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  border-radius: 10px;
+  transition: height 0.05s linear;
+}
+
+.custom-scrollbar-container:hover .custom-scrollbar-thumb {
+  background: linear-gradient(180deg, #1a1a1a, #444);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .custom-scrollbar-container {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .custom-scrollbar-thumb {
+    background: #fff;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .custom-scrollbar-container {
+    right: 4px;
+    width: 3px;
+    height: 150px;
+  }
+
+  .custom-scrollbar-container:hover {
+    width: 5px;
+  }
 }

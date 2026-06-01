@@ -1,33 +1,30 @@
-// components/VerticalRightHeaderWithIcons.jsx
+'use client';
+
 import Link from 'next/link';
 
-const Header = () => {
-    const navItems = [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Services', href: '/services' },
-        { name: 'Portfolio', href: '/portfolio' },
-        { name: 'Contact', href: '/contact' },
-    ];
-
+export default function Header() {
     return (
-        <header className="fixed right-0 top-0 h-screen w-24 text-white z-50">
-            <nav className="h-full flex flex-col items-center justify-center gap-6">
-                {navItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        href={item.href}
-                        className="group flex flex-col items-center py-4 gap-2 hover:scale-110 transition-transform duration-200"
-                    >
-                        <span className="transform -rotate-90 whitespace-nowrap text-lg font-medium ">
-                            {item.name}
-                        </span>
+        <nav className="w-full flex justify-center md:justify-end px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-8 lg:py-10 xl:py-12 z-20 flex-wrap items-center gap-12 md:gap-8 lg:gap-10 xl:gap-14 text-[12px] md:text-[16px] lg:text-[18px] font-semibold">
+            <Link
+                href="#"
+                className="transition-opacity duration-300 hover:opacity-50 whitespace-nowrap"
+            >
+                work
+            </Link>
 
-                    </Link>
-                ))}
-            </nav>
-        </header>
+            <Link
+                href="#"
+                className="transition-opacity duration-300 hover:opacity-50 whitespace-nowrap"
+            >
+                awards
+            </Link>
+
+            <Link
+                href="#"
+                className="transition-opacity duration-300 hover:opacity-50 whitespace-nowrap"
+            >
+                contact me
+            </Link>
+        </nav>
     );
 }
-
-export default Header;
