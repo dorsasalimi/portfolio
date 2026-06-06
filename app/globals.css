@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'FattiPattiFLF';
-  src: url('./fonts/FattiPattiFLF.ttf') format('truetype');
+  src: url('/portfolio/fonts/FattiPattiFLF.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,8 +10,7 @@
 
 @font-face {
   font-family: 'MonumentExtended-Regular';
-  src: url('./fonts/MonumentExtended-Regular.otf') format('opentype');
-  /* Fixed format to opentype */
+  src: url('/portfolio/fonts/MonumentExtended-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,8 +18,7 @@
 
 @font-face {
   font-family: 'UniviaPro-Regular';
-  src: url('./fonts/UniviaPro-Regular.otf') format('opentype');
-  /* Fixed format to opentype */
+  src: url('/portfolio/fonts/UniviaPro-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -28,7 +26,7 @@
 
 @font-face {
   font-family: 'ProductSans';
-  src: url('./fonts/Product-Sans-Regular.ttf') format('truetype');
+  src: url('/portfolio/fonts/Product-Sans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -61,7 +59,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif, ;
+  font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif;
 }
 
 /* Rest of your animations remain the same */
