@@ -6,7 +6,7 @@ export default function MagneticCursor() {
     const ringRef = useRef<HTMLDivElement>(null);
     const pos = useRef({ x: 0, y: 0 });
     const ring = useRef({ x: 0, y: 0 });
-    const rafRef = useRef<number>();
+    const rafRef = useRef<number | null>(null); // Fixed: Added initial value and allowed null type
 
     useEffect(() => {
         const onMove = (e: MouseEvent) => {
