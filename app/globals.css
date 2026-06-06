@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'FattiPattiFLF';
-  src: url('/fonts/FattiPattiFLF.ttf') format('truetype');
+  src: url('./fonts/FattiPattiFLF.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,15 +10,8 @@
 
 @font-face {
   font-family: 'MonumentExtended-Regular';
-  src: url('/fonts/MonumentExtended-Regular.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: '3DLet';
-  src: url('/fonts/3dlet.ttf') format('truetype');
+  src: url('./fonts/MonumentExtended-Regular.otf') format('opentype');
+  /* Fixed format to opentype */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -26,7 +19,8 @@
 
 @font-face {
   font-family: 'UniviaPro-Regular';
-  src: url('/fonts/UniviaPro-Regular.otf') format('truetype');
+  src: url('./fonts/UniviaPro-Regular.otf') format('opentype');
+  /* Fixed format to opentype */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -34,7 +28,7 @@
 
 @font-face {
   font-family: 'ProductSans';
-  src: url('/fonts/Product Sans Regular.ttf') format('truetype');
+  src: url('./fonts/Product-Sans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -67,7 +61,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif, '3dlet';
+  font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif, ;
 }
 
 /* Rest of your animations remain the same */
@@ -159,8 +153,6 @@ body {
     transform: translateX(-33.33%);
   }
 }
-
-/* Add to your globals.css */
 
 /* Hide default scrollbar */
 * {
