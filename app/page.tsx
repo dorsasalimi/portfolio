@@ -1,13 +1,8 @@
-// app/page.tsx
 'use client';
 import { useEffect } from 'react';
-import Header from './components/Header';
-import Bow from './components/bow';
-import FramerSmoothScroll from './components/FramerSmoothScroll';
 import BackgroundNoise from './components/BackgroundNoise';
 import SelectedWorks from './components/SelectedWorks';
 import MagneticCursor from './components/MagneticCursor';
-import MarqueeStrip from './components/MarqueeStrip';
 import HiddenTerminal from './components/HiddenTerminal';
 
 export default function Home() {
@@ -43,8 +38,6 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className="z-10 flex min-h-screen flex-col px-8 sm:px-8 md:px-12 lg:px-16 pt-10">
-
-          {/* Main Heading */}
           <div className="relative inline-block md:leading-35 leading-none tracking-widest">
             <h1 className="text-[60px]  md:text-[130px] font-black">Hello.</h1>
             <h1 className="text-[60px] md:text-[130px] font-black">I am
@@ -59,7 +52,6 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Developer Info with Arrow */}
           <div className="flex items-end justify-end gap-6 mt-4 sm:mt-0 md:pl-24">
             <div className='w-full sm:w-1/2 gap-4 flex justify-start'>
               <div className="relative h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[80px] md:w-[80px]">
@@ -116,7 +108,6 @@ export default function Home() {
                 </svg>
               </div>
 
-              {/* Show Creativity Text */}
               <div className="absolute left-[-20px] md:left-[100px] top-[40px]  md:top-[50px] h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[300px] md:w-[300px] lg:h-[400px] lg:w-[400px] flex flex-col items-center justify-center text-end">
                 <p className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] uppercase tracking-[0.25em] sm:tracking-[0.35em] md:tracking-[0.4em] lg:tracking-[0.45em] text-white/40">
                   Show
@@ -127,7 +118,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Date and Status */}
             <div className="absolute left-[5%] sm:left-[12%] md:left-[18%] lg:left-[22%] top-[-10px] sm:top-[10px] md:top-[30px] lg:top-[40px] flex items-start gap-2 sm:gap-3 md:gap-4 lg:gap-5">
               <h2
                 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[130px] font-black leading-none tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.1em] text-transparent"
@@ -210,7 +200,6 @@ export default function Home() {
                       resume.pdf
                     </span>
 
-                    {/* Underline draw */}
                     <span
                       data-line
                       style={{
@@ -226,7 +215,6 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Download Arrow */}
                   <svg
                     data-arrow
                     viewBox="0 0 24 24"
@@ -364,7 +352,6 @@ export default function Home() {
         {/* Selected Works */}
         <SelectedWorks />
 
-        {/* Call to Action */}
         <div className='mt-[100px] sm:mt-[200px] md:mt-[400px] lg:mt-[600px] w-11/12 sm:w-10/12 m-auto px-4 sm:px-0 mb-32'>
           <p className='text-[30px] sm:text-[50px] md:text-[80px] lg:text-[120px] tracking-tight leading-none'>
             i'm always interested about cool stuff.

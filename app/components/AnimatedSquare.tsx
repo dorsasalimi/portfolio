@@ -16,7 +16,6 @@ interface AnimatedSquareProps {
     zLayer?: 'behind' | 'content' | 'above';
 }
 
-// Cat SVG Icon Component
 function CatIcon({ size, color, opacity }: { size: number; color: string; opacity: number }) {
     return (
         <svg
@@ -81,24 +80,21 @@ export default function AnimatedSquare({
 
     const currentSize = sizeMap[size];
 
-    // Scale based on depth (closer = larger, farther = smaller)
     const scale = depth === 'forward' ? 1.2 : depth === 'middle' ? 1 : 0.7;
 
-    // Z-index based on zLayer prop
     const zIndexValue = zLayer === 'above' ? 45 : zLayer === 'content' ? 25 : 5;
 
     useEffect(() => {
         const handleScroll = () => {
             if (squareRef.current) {
                 const scrollY = window.scrollY;
-                // Different scroll speeds create depth perception
                 let speedMultiplier;
                 if (depth === 'forward') {
-                    speedMultiplier = 0.8; // Moves faster than content
+                    speedMultiplier = 0.8;
                 } else if (depth === 'middle') {
-                    speedMultiplier = 0.4; // Moves same speed as content
+                    speedMultiplier = 0.4;
                 } else {
-                    speedMultiplier = 0.15; // Moves slower than content (far away)
+                    speedMultiplier = 0.15;
                 }
 
                 const moveY = -scrollY * speedMultiplier;
@@ -113,10 +109,8 @@ export default function AnimatedSquare({
         return () => window.removeEventListener('scroll', handleScroll);
     }, [depth, rotate, scale]);
 
-    // Apply blur as a CSS filter, but don't apply border or background
     const blurFilter = blur > 0 ? `blur(${blur}px)` : 'none';
 
-    // Opacity is handled by the SVG itself, not the container
     const containerOpacity = 1;
 
     return (
