@@ -1,4 +1,3 @@
-// app/layout.tsx - Add this script to your existing layout
 import './globals.css'
 import type { Metadata } from 'next'
 import SmoothScroll from './components/FramerSmoothScroll'
@@ -21,7 +20,7 @@ export default function RootLayout({
       <body>
         <SmoothScroll>
           <Header />
-          <SimpleScrollbar /> {/* Add this - no extra styling needed */}
+          <SimpleScrollbar />
           {children}
           <Footer />
         </SmoothScroll>

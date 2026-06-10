@@ -1,4 +1,3 @@
-// components/BackgroundNoise.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -26,7 +25,6 @@ export default function BackgroundNoise() {
             canvas.height = height;
         };
 
-        // Simple static noise pattern (no animation, just random static)
         const generateStaticNoise = () => {
             const imageData = ctx.createImageData(width, height);
             const data = imageData.data;
@@ -36,7 +34,7 @@ export default function BackgroundNoise() {
                 data[i] = value;     // R
                 data[i + 1] = value; // G
                 data[i + 2] = value; // B
-                data[i + 3] = 15;    // A - lower opacity for subtle effect
+                data[i + 3] = 15;    // A 
             }
 
             ctx.putImageData(imageData, 0, 0);

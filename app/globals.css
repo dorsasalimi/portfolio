@@ -2,67 +2,68 @@
 
 @font-face {
   font-family: 'FattiPattiFLF';
-  src: url('/portfolio/fonts/FattiPattiFLF.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/fonts/FattiPattiFLF.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'MonumentExtended-Regular';
-  src: url('/portfolio/fonts/MonumentExtended-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/fonts/MonumentExtended-Regular.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'UniviaPro-Regular';
-  src: url('/portfolio/fonts/UniviaPro-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/fonts/UniviaPro-Regular.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'ProductSans';
-  src: url('/portfolio/fonts/Product-Sans-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/fonts/Product-Sans-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --muted: rgba(237, 237, 237, 0.55);
+  --soft: rgba(237, 237, 237, 0.15);
+  --stroke: rgba(237, 237, 237, 0.9);
+  --glow: rgba(237, 237, 237, 0.05);
+
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-muted: var(--muted);
+  --color-soft: var(--soft);
+  --color-stroke: var(--stroke);
+  --color-glow: var(--glow);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html {
-  /* Required — without this, browser native scroll fights Lenis */
   scroll-behavior: auto !important;
+  -webkit-text-size-adjust: 100%;
+  background: var(--background);
 }
 
 body {
+  min-height: 100svh;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
-/* Rest of your animations remain the same */
 @keyframes float {
 
   0%,
@@ -113,7 +114,6 @@ body {
   }
 }
 
-/* app/globals.css */
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -152,7 +152,6 @@ body {
   }
 }
 
-/* Hide default scrollbar */
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -162,7 +161,6 @@ body {
   display: none;
 }
 
-/* Custom scrollbar container */
 .custom-scrollbar-container {
   position: fixed;
   right: 8px;
@@ -170,7 +168,7 @@ body {
   transform: translateY(-50%);
   width: 4px;
   height: 200px;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--soft);
   border-radius: 10px;
   z-index: 9999;
   cursor: pointer;
@@ -179,36 +177,23 @@ body {
 
 .custom-scrollbar-container:hover {
   width: 6px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(237, 237, 237, 0.2);
 }
 
-/* Custom scrollbar thumb */
 .custom-scrollbar-thumb {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: #000;
+  background: var(--foreground);
   border-radius: 10px;
   transition: height 0.05s linear;
 }
 
 .custom-scrollbar-container:hover .custom-scrollbar-thumb {
-  background: linear-gradient(180deg, #1a1a1a, #444);
+  background: linear-gradient(180deg, #ffffff, #8f8f8f);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .custom-scrollbar-container {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .custom-scrollbar-thumb {
-    background: #fff;
-  }
-}
-
-/* Mobile responsive */
 @media (max-width: 768px) {
   .custom-scrollbar-container {
     right: 4px;

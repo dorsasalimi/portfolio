@@ -10,14 +10,14 @@ interface WorkItem {
 }
 
 const worksData: WorkItem[] = [
-    { name: 'Paolo Fornasier', description: 'The portfolio of Paolo Fornasier, a young Italian musician', imagePath: '/work1.jpg', imageAlt: 'Paolo Fornasier', align: 'left' },
-    { name: 'Barbara Scerbo', description: 'The portfolio of Barbara Scerbo, a young Sicilian designer', imagePath: '/work2.jpg', imageAlt: 'Barbara Scerbo', align: 'right' },
-    { name: 'Your Project', description: 'A brief description of your amazing project goes here', imagePath: '/work3.jpg', imageAlt: 'Your Project', align: 'left' },
+    { name: 'My Project', description: 'hehe this will be filled soon i promise', imagePath: '/work1.jpg', imageAlt: 'Paolo Fornasier', align: 'left' },
+    { name: 'My Project', description: 'hehe this will be filled soon i promise', imagePath: '/work2.jpg', imageAlt: 'Barbara Scerbo', align: 'right' },
+    { name: 'My Project', description: 'hehe this will be filled soon i promise', imagePath: '/work3.jpg', imageAlt: 'Your Project', align: 'left' },
 ];
 
 export default function SelectedWorks() {
     return (
-        <div className="relative mt-[400px] sm:mt-[600px] md:mt-[800px] lg:mt-[1000px] px-4 sm:px-8 md:px-12 lg:px-16">
+        <div id='work' className="relative mt-[400px] sm:mt-[600px] md:mt-[800px] lg:mt-[1000px] px-4 sm:px-8 md:px-12 lg:px-16">
             <div className="w-full md:w-11/12 lg:w-10/12 mx-auto">
                 <div className='flex justify-center'>
                     <div className="mb-12 sm:mb-16 md:mb-20">
@@ -43,7 +43,6 @@ function WorkCard({ work, index }: { work: WorkItem; index: number }) {
     const cardRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
 
-    // Scroll reveal
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => { if (entry.isIntersecting) setVisible(true); },
@@ -53,7 +52,6 @@ function WorkCard({ work, index }: { work: WorkItem; index: number }) {
         return () => observer.disconnect();
     }, []);
 
-    // Mouse tilt on image
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!imageRef.current) return;
         const rect = imageRef.current.getBoundingClientRect();
@@ -91,7 +89,6 @@ function WorkCard({ work, index }: { work: WorkItem; index: number }) {
                     </p>
                 </div>
 
-                {/* Image with tilt */}
                 <div className="w-full md:w-2/3 relative px-4 md:px-0" ref={imageRef} onMouseMove={handleMouseMove} onMouseLeave={resetTilt}>
                     <div className="relative overflow-visible">
                         <div
@@ -105,7 +102,6 @@ function WorkCard({ work, index }: { work: WorkItem; index: number }) {
                             <div className="absolute inset-0 bg-black/20 transition-all duration-300 group-hover:bg-black/10" />
                         </div>
 
-                        {/* Spinning circle with text - KEPT INTACT */}
                         {isHovered && (
                             <div className={`absolute ${getCirclePosition()} z-20`}>
                                 <div

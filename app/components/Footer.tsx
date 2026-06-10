@@ -7,15 +7,7 @@ export default function Footer() {
         <footer className="w-full mb-10 dark:border-gray-800">
             <div className="w-11/12 mx-auto bg-white py-20 px-12">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="flex gap-8">
-                        <a
-                            href="https://instagram.com/#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-black transition-colors"
-                        >
-                            Instagram
-                        </a>
+                    <div className="flex gap-8 tracking-wide">
                         <a
                             href="mailto:@saliimidorsa@gmail.com"
                             className="text-black transition-colors"
@@ -29,6 +21,14 @@ export default function Footer() {
                             className="text-black transition-colors"
                         >
                             GitHub
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/dorsasaliimi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-black transition-colors"
+                        >
+                            linkedin
                         </a>
                     </div>
 
