@@ -32,7 +32,7 @@ export default function AboutSection() {
                             <br />
 
                             <a
-                                href="mailto:hello@youremail.com"
+                                href="mailto:saliimidorsa@gmail.com"
                                 className="inline-flex items-baseline cursor-pointer mt-2 no-underline"
                                 onMouseEnter={(e) => {
                                     const chars =

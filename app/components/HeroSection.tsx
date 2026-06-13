@@ -93,10 +93,8 @@ export default function HeroSection() {
             </div>
 
             {/* Circle and Date Section */}
-            <div className="relative mt-20 md:mt-0 flex items-center justify-center min-h-[220px] md:min-h-[450px] lg:min-h-[550px]">
-                {/* Responsive Container for Circle Mask & Text */}
+            <div className="relative mt-8 md:mt-0 md:mt-0 flex items-center justify-center min-h-[220px] md:min-h-[450px] lg:min-h-[550px]">
                 <div className="absolute left-1/2 top-1/2 md:left-[100px] md:top-[30px] lg:left-[150px] lg:top-[40px] -translate-x-1/2 -translate-y-1/2 md:translate-x-0 md:translate-y-0 w-[270px] h-[270px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] aspect-square">
-                    {/* Circle SVG */}
                     <svg
                         width="100%"
                         height="100%"
