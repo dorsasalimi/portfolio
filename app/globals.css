@@ -56,12 +56,100 @@ html {
 
 body {
   min-height: 100svh;
-  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: 'MonumentExtended-Regular', 'UniviaPro-Regular', 'ProductSans', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+}
+
+.contact-char {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--foreground);
+  letter-spacing: 0.18em;
+  -webkit-text-stroke: 0px var(--stroke);
+  transition:
+    color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-text-stroke 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .contact-char {
+  color: transparent;
+  -webkit-text-stroke: 0.7px var(--stroke);
+  letter-spacing: 0.32em;
+}
+
+.contact-arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--foreground);
+  opacity: 0;
+  transform: translateX(-6px);
+  margin-left: 3px;
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+.group:hover .contact-arrow {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    letter-spacing: 0.06em;
+    opacity: 1;
+  }
+
+  50% {
+    letter-spacing: 0em;
+    opacity: 0.75;
+  }
+}
+
+.breathe {
+  animation: breathe 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.resume-label {
+  color: var(--muted);
+  -webkit-text-stroke: 0px;
+  transition: color 0.3s, -webkit-text-stroke 0.3s;
+}
+
+.resume-download:hover .resume-label {
+  color: transparent;
+  -webkit-text-stroke: 0.5px var(--stroke);
+}
+
+.resume-line {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 0.5px;
+  width: 0%;
+  background-color: var(--stroke);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resume-download:hover .resume-line {
+  width: 100%;
+}
+
+.resume-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s;
+}
+
+.resume-download:hover .resume-arrow {
+  transform: translateY(2px);
+  stroke: var(--stroke);
 }
 
 @keyframes float {

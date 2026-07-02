@@ -1,56 +1,23 @@
 'use client';
 
-import { useEffect } from 'react';
-
 export default function HeroSection() {
-    useEffect(() => {
-        const targets = document.querySelectorAll<HTMLElement>('[data-breathe]');
-        let phase = 0;
-
-        const cycle = () => {
-            targets.forEach((el) => {
-                el.style.transition =
-                    'letter-spacing 3.5s cubic-bezier(0.4,0,0.2,1), opacity 3.5s ease';
-
-                if (phase === 0) {
-                    el.style.letterSpacing = el.dataset.breatheExpand ?? '0.08em';
-                    el.style.opacity = '1';
-                } else {
-                    el.style.letterSpacing = el.dataset.breatheContract ?? '0em';
-                    el.style.opacity = '0.75';
-                }
-            });
-
-            phase = phase === 0 ? 1 : 0;
-        };
-
-        cycle();
-
-        const id = setInterval(cycle, 3800);
-
-        return () => clearInterval(id);
-    }, []);
 
     return (
-        <div className="z-10 flex min-h-[100svh] flex-col px-8 sm:px-8 md:px-12 lg:px-16 pt-10">
-            <div className="relative inline-block leading-tight md:leading-[1.05] tracking-widest">
-                <h1 className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black leading-none">
-                    Hello.
-                </h1>
+        <div className="z-10 flex min-h-screen flex-col px-5 sm:px-8 md:px-12 lg:px-16 pt-32">            <div className="relative inline-block leading-tight md:leading-[1.05] tracking-widest">
+            <h1 className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black leading-none">
+                Hello.
+            </h1>
 
-                <h1 className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black leading-none flex flex-wrap items-baseline">
-                    <span>I am</span>
+            <h1 className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black leading-none flex flex-wrap items-baseline">
+                <span>I am</span>
 
-                    <span
-                        className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black md:pl-10"
-                        data-breathe
-                        data-breathe-expand="0.06em"
-                        data-breathe-contract="0em"
-                    >
-                        Dorsa.
-                    </span>
-                </h1>
-            </div>
+                <span
+                    className="text-[14vw] sm:text-[11vw] md:text-[130px] font-black md:pl-10 breathe"
+                >
+                    Dorsa.
+                </span>
+            </h1>
+        </div>
 
             <div className="flex items-end justify-end gap-6 md:pl-24">
                 <div className="w-full sm:w-1/2 gap-4 flex justify-start items-center">
@@ -93,7 +60,7 @@ export default function HeroSection() {
             </div>
 
             {/* Circle and Date Section */}
-            <div className="relative mt-8 md:mt-0 md:mt-0 flex items-center justify-center min-h-[220px] md:min-h-[450px] lg:min-h-[550px]">
+            <div className="relative mt-22 md:mt-0 md:mt-0 flex items-center justify-center min-h-[220px] md:min-h-[450px] lg:min-h-[550px]">
                 <div className="absolute left-1/2 top-1/2 md:left-[100px] md:top-[30px] lg:left-[150px] lg:top-[40px] -translate-x-1/2 -translate-y-1/2 md:translate-x-0 md:translate-y-0 w-[270px] h-[270px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] aspect-square">
                     <svg
                         width="100%"
@@ -157,80 +124,19 @@ export default function HeroSection() {
                         <a
                             href="/dorsasalimi.pdf"
                             download="dorsasalimi.pdf"
-                            className="inline-flex items-center group no-underline"
-                            onMouseEnter={(e) => {
-                                const label =
-                                    e.currentTarget.querySelector<HTMLSpanElement>('[data-label]');
-                                const line =
-                                    e.currentTarget.querySelector<HTMLSpanElement>('[data-line]');
-                                const arrow =
-                                    e.currentTarget.querySelector<SVGSVGElement>('[data-arrow]');
-
-                                if (label) {
-                                    label.style.color = 'transparent';
-                                    label.style.setProperty(
-                                        '-webkit-text-stroke',
-                                        '0.5px var(--stroke)'
-                                    );
-                                }
-
-                                if (line) {
-                                    line.style.width = '100%';
-                                }
-
-                                if (arrow) {
-                                    arrow.style.transform = 'translateY(2px)';
-                                    arrow.style.stroke = 'var(--stroke)';
-                                }
-                            }}
-                            onMouseLeave={(e) => {
-                                const label =
-                                    e.currentTarget.querySelector<HTMLSpanElement>('[data-label]');
-                                const line =
-                                    e.currentTarget.querySelector<HTMLSpanElement>('[data-line]');
-                                const arrow =
-                                    e.currentTarget.querySelector<SVGSVGElement>('[data-arrow]');
-
-                                if (label) {
-                                    label.style.color = 'var(--muted)';
-                                    label.style.setProperty('-webkit-text-stroke', '0px');
-                                }
-
-                                if (line) {
-                                    line.style.width = '0%';
-                                }
-
-                                if (arrow) {
-                                    arrow.style.transform = 'translateY(0px)';
-                                    arrow.style.stroke = 'var(--muted)';
-                                }
-                            }}
+                            className="inline-flex items-center group no-underline resume-download"
                         >
                             <div className="relative">
                                 <span
                                     data-label
-                                    className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em]"
-                                    style={{
-                                        color: 'var(--muted)',
-                                        WebkitTextStroke: '0px',
-                                        transition: 'color 0.3s, -webkit-text-stroke 0.3s',
-                                    }}
+                                    className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] resume-label"
                                 >
                                     resume.pdf
                                 </span>
 
                                 <span
                                     data-line
-                                    style={{
-                                        position: 'absolute',
-                                        bottom: '-2px',
-                                        left: 0,
-                                        height: '0.5px',
-                                        width: '0%',
-                                        backgroundColor: 'var(--stroke)',
-                                        transition:
-                                            'width 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                                    }}
+                                    className="resume-line"
                                 />
                             </div>
 
@@ -242,11 +148,7 @@ export default function HeroSection() {
                                 strokeWidth="1.5"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                className="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px]"
-                                style={{
-                                    transition:
-                                        'transform 0.3s cubic-bezier(0.16,1,0.3,1), stroke 0.3s',
-                                }}
+                                className="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] resume-arrow"
                             >
                                 <path d="M12 3v13M5 13l7 7 7-7" />
                             </svg>
